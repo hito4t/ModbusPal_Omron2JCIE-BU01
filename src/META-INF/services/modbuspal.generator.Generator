@@ -1,0 +1,4 @@
+com.hito4t.iot.OmronTemperatureGenerator
+com.hito4t.iot.OmronHumidityGenerator
+com.hito4t.iot.OmronLightGenerator
+com.hito4t.iot.OmronNoiseGenerator
