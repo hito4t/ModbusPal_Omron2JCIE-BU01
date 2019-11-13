@@ -42,8 +42,8 @@ public abstract class AbstractOmron2JCIE_BU01Generator extends Generator {
 				try {
 					sensor.update();
 				} catch (IOException e) {
-					logger.severe(toString(e));
 					e.printStackTrace();
+					logger.log(Level.SEVERE, e.getMessage(), e);
 				}
 				lastUpdatedTime = System.currentTimeMillis();
 			}
