@@ -7,6 +7,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Properties;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import modbuspal.generator.Generator;
@@ -37,7 +38,7 @@ public abstract class AbstractOmron2JCIE_BU01Generator extends Generator {
 			}
 
 
-			if (lastUpdatedTime + 1000 <= System.currentTimeMillis()) {
+			if (sensor != null && lastUpdatedTime + 1000 <= System.currentTimeMillis()) {
 				try {
 					sensor.update();
 				} catch (IOException e) {
@@ -49,7 +50,9 @@ public abstract class AbstractOmron2JCIE_BU01Generator extends Generator {
 			return sensor;
 
 		} catch (Exception e) {
-			logger.severe(toString(e));
+			e.printStackTrace();
+			logger.log(Level.SEVERE, e.getMessage(), e);
+			//logger.severe(toString(e));
 			//throw new RuntimeException(e);
 			return null;
 		}
